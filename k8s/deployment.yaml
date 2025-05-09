@@ -11,12 +11,14 @@ spec:
       app: test-app
   template:
     metadata:
+      annotations:
+        kubectl.kubernetes.io/restartedAt: "$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
       labels:
         app: test-app
     spec:
       containers:
         - name: test-app
-          image: hanh1107/test-app:${COMMIT_SHA}
+          image: hanh1107/test-app:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
