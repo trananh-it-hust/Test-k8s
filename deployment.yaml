@@ -5,7 +5,7 @@ metadata:
   labels:
     app: test-app
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: test-app
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: test-app
-          image: ${DOCKERHUB_USERNAME}/test-app:latest
+          image: hanh1107/test-app:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
@@ -44,7 +44,8 @@ spec:
   ports:
     - port: 80
       targetPort: 3000
-  type: ClusterIP
+      nodePort: 30080
+  type: NodePort
 ---
 apiVersion: v1
 kind: ConfigMap
