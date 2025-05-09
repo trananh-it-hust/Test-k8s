@@ -44,7 +44,9 @@ const server = http.createServer((req, res) => {
   const serverIP = getServerIP();
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/plain");
-  res.end(`Hello, World!\nServer IP: ${serverIP}\nVersion: ${version}\n`);
+  res.end(
+    `Hello, World!\nServer IP: ${serverIP}\nVersion: ${version}\nHostname: ${hostname}\nUpdated: ${new Date().toISOString()}\n`
+  );
 });
 
 server.listen(port, hostname, () => {
