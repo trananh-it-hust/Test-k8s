@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: test-app
-          image: hanh1107/test-app:d849c61c81237b4cb9b477dc9ebe99b61f8967a1
+          image: hanh1107/test-app:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
