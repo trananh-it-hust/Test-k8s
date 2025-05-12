@@ -49,7 +49,7 @@ jobs:
       # Edit file deployment.yaml to set image
       - name: Update deployment.yaml
         run: |
-          sed -i "s|image: hanh1107/test-app:latest|image: ${{ secrets.DOCKERHUB_USERNAME }}/test-app:${{ github.sha }}|g" k8s/deployment.yaml
+          sed -i "s|image: hanh1107/test-app:[^ ]*|image: ${{ secrets.DOCKERHUB_USERNAME }}/test-app:${{ github.sha }}|g" k8s/deployment.yaml
 
       # Commit and push changes to deployment.yaml
       - name: Commit and push changes
