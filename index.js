@@ -45,7 +45,7 @@ const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/plain");
   res.end(
-    `HÊHHEHEHEEHEH Server IP: ${serverIP}\nVersion: ${version}\nHostname: ${hostname}\nUpdated: ${new Date().toISOString()}\n`
+    `1234\nServer IP: ${serverIP}\nVersion: ${version}\nHostname: ${hostname}\nUpdated: ${new Date().toISOString()}\n`
   );
 });
 
