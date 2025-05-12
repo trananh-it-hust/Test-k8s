@@ -20,6 +20,7 @@ spec:
         - name: test-app
           image: hanh1107/test-app:latest
           # image: ${{ secrets.DOCKERHUB_USERNAME }}/test-app:${{ github.sha }}
+          # image: ${{ secrets.DOCKERHUB_USERNAME }}/test-app:2.0.0
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
