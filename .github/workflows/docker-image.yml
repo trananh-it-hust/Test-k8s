@@ -44,3 +44,17 @@ jobs:
         run: |
           rm -rf /tmp/.buildx-cache
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+
+      # Edit file deployment.yaml to set image
+      - name: Update deployment.yaml
+        run: |
+          sed -i "s|image: hanh1107/test-app:latest|image: ${{ secrets.DOCKERHUB_USERNAME }}/test-app:${{ github.sha }}|g" k8s/deployment.yaml
+
+      # Commit and push changes to deployment.yaml
+      - name: Commit and push changes
+        run: |
+          git config --local user.name "github-actions"
+          git config --local user.email "github-actions@github.com"
+          git add k8s/deployment.yaml
+          git commit -m "Update deployment.yaml with new image"
+          git push
