@@ -4,6 +4,8 @@ metadata:
   name: test-app
   labels:
     app: test-app
+  annotations:
+    notifications.argoproj.io/subscribe.slack: new-channel
 spec:
   replicas: 3
   selector:
